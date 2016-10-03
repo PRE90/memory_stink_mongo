@@ -105,6 +105,7 @@
 			matches=0;
 			counter=0;
 			console.log("New Game");
+			$("*").css("background-color", "rgb(31,38,41)")
 		}
 
 		$(document).ready(function(){
@@ -129,6 +130,7 @@
 			console.log(isMatch);
 
 			$(this).animate({opacity: 100});
+			$("*").css("background-color", "rgb("+(31+counter*3)+",38,41)")
 
 			if(isMatch.length%2 === 0 && isMatch.length>0) {
 				var check1 = isMatch[counter-1];
