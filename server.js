@@ -27,7 +27,8 @@ var GET_main = (req, res) => {
 };
 
 var GET_scores = (req, res) => {
-	var cursor = db.collection(scores).find()
+	// mongo cursor methods
+	var cursor = db.collection(scores).find().limit(10).sort({score: -1})
 		.toArray((err, results) => {
 			if (err) return console.log(err);
 			res.render('hall.ejs', {scores: results});
