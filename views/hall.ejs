@@ -9,95 +9,25 @@
 	<title>Your Memory Stinks - Hall of Fame</title>
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!-- <link type="text/css" rel="stylesheet" href="style/style.css"></link> -->
-	<style type="text/css">
-		body {
-	background-color: #1F2629;
-}
-
-h1 {
-	color: white;
-	text-align: center;
-}
-
-hr {
-	color: #F5F5F6;
-	background-color: #F5F5F6;
-}
-
-h6:hover {
-	color: gray;
-}
-
-img {
-	object-fit: cover;
-	object-position: 50% 50%;
-	margin: auto; 
-    min-height: 100%;
-    min-width: 100%;
-}
-
-button {
-	color: #FE6B88;
-	background-color: #1F2629;
-	margin-left: auto;
-}
-
-input {
-	margin: auto;
-	width: 24vw;
-}
-
-span {
-	color: white;
-}
-
-.top {
-	color: #FE6B88;
-}
-
-.row {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 1200px;
-}
-
-.row-centered {
-    text-align: center;
-}
-
-.col-centered {
-    display: inline-block;
-    float: none;
-}
-
-.col-xs-2 {
-	width: 18vw;
-	height: 20vh;
-    overflow: hidden;
-    margin: 0px;
-    padding: 0px;
-    border-color: #F5F5F6;
-	border-style: solid;
-	border-width: 2px;
-}
-
-.col-xs-2:hover {
-	border-color: #FE6B88;
-	border-style: solid;
-	border-width: 2px;
-}
-
-#input {
-	display: none;
-}
-	</style>
+	<link rel="stylesheet" href="../css/style.css"></link>
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<h1>Hall Of <span class="top">Fame</span></h1>
 	<hr>
+	<div class="container-fluid">
+		<div class="row-centered">
+			<form action="/" method="GET">
+				<button class="new-game col-xs-4 col-xs-offset-2">New Game</button>
+			</form>
+			<form action="/hall" method="GET">
+				<button class="hall-of-fame col-xs-4">Hall Of Fame</button>
+			</form>
+		</div>
+	</div>
+	<br>
 	<div class="container">
 		<% for(var i=0; i<scores.length; i++) {%>
 			<p class="scores row">

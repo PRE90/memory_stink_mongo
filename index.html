@@ -10,33 +10,37 @@
 	<title>Your Memory Stinks</title>
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!-- <link type="text/css" rel="stylesheet" href="style/style.css"></link> -->
 	<link rel="stylesheet" href="css/style.css"></link>
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 	<header>
-		<h1>Your Memory <span>Stinks</span></h1>
+		<h1><span> Memories </span>They Were</h1>
 		<hr>
 	</header>
 	<div class="container-fluid">
 		<div class="row-centered">
 			<form action="/" method="GET">
-				<button class="new-game col-xs-4">New Game</button>
+				<button class="new-game col-xs-4 col-xs-offset-2">New Game</button>
 			</form>
 			<form action="/hall" method="GET">
-				<button class="hall-of-fame col-xs-4">Hall Of Fame</button>
+				<button class="hall-of-fame col-xs-4">Hall of Records</button>
 			</form>
 		</div>
 	</div>
-
-	<form id= "input" action="/hall" method="POST">
-		<input type="text" placeholder="name" name="name">
-		<input class="score" type="text" placeholder="" name="score">
-		<button type="submit">Submit</button>
-	</form>
+	<div class="row-centered">
+		<form id= "input" action="/hall" method="POST">
+			<h4>Your memory isn't as bad as it seems. Enter your name below to save your score:</h4>
+			<input type="text" placeholder="name" type="text" name="name">
+			<input id="score1" type="number" name="score" value="" readonly>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
 
 	<br>
 
@@ -105,6 +109,7 @@
 
 		$(document).ready(function(){
 			event.preventDefault();
+			$('#input').hide();
 			refresh();
 			$('img').animate({opacity: 0});
 		});
@@ -147,9 +152,8 @@
 					if (matches == 10){
 						var score = {};
 						score.score = 100-counter+20;
-						$('#input').css("display","inline-flex");
-						// $('.score').innerHtml('')
-						alert("Hooray! Enter your name below to save your score: " + score.score+ " out of 100");
+						$('#input').show();
+						$('#score1').val(score.score);
 						console.log(score);
 						matches = 0;
 						counter = 0;
